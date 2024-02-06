@@ -106,5 +106,5 @@ int validatePhoneNumber(const char* phoneNumber)
             return 0; // Phone number should only contain digits, so return 0 (false)
         }
     }
-    return 1;
+    return 1;    // If all characters are digits and the length is 10, return 1 (true) to indicate a valid phone number
 }
