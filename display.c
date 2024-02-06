@@ -1,3 +1,7 @@
+/*The function "displayStudents" prints the information of all students in an array. 
+It checks if there are any students to display and then iterates over each student.
+prints their ID, name, email, course, and phone number. */
+
 #include "main.h"
 
 #define PAGE_SIZE 5 // Number of students to display per page
