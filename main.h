@@ -1,3 +1,7 @@
+/*The student.h header file defines the structure of a student and declares function prototypes for operations on student records, 
+such as adding, displaying, searching, deleting, and saving/loading students.
+It also includes validation functions for fields like name, email, course, and phone number.*/
+
 #ifndef MAIN_H
 #define MAIN_H
 
