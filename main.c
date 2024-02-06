@@ -7,6 +7,7 @@ The program uses an array to store pointers to Student objects and keeps track o
 #include"student.c"
 #include"add.c"
 #include"display.c"
+#include "search.c"
 //Entry point of the program
 int main() {     
     Student *students[MAX_STUDENTS]; // Array of structures pointer 
@@ -14,11 +15,12 @@ int main() {
    // loadStudentsFromFile(students, &count);
 
     int choice; //variable to select the user's choise
-    //int searchId, deleteId;
+    int searchId;
+    //int  deleteId;
     char filterCourse[MAX_COURSE_LENGTH]; //to store a course for filtering
     char email[MAX_EMAIL_LENGTH]; //to store an email address
 
-    do {
+    while(choice != 9){
         printf("\n--- Student Admission System ---\n");
         printf("1. Add Student\n");
         printf("2. Display Students\n");
@@ -27,27 +29,31 @@ int main() {
         printf("5. Modify Student Information\n");
         printf("6. Exit\n");
         printf("Enter your choice: ");
-        scanf("%d", &choice); // Read user's choice
-
-        switch (choice) {
+       if (scanf("%d", &choice) != 1) { // Check if the input is not an integer
+            printf("Invalid input. Please enter a number.\n");
+            scanf("%*s"); // Clear the input buffer
+            continue; // Skip the rest of the loop and prompt the user again
+        }
+        switch (choice) {  
             case 1:
                 addStdnt(students, &count); //Add a new student to the array
                 break;
             case 2:
                 displayStdnt(students, count);// Display all the students
                 break;
-           /* case 3:
-                printf("Enter student ID to search: ");6
+            case 3:
+                printf("Enter student ID to search: ");
                 scanf("%d", &searchId);
-                search_Student(students, count, searchId);
-                break;*/
+                search_student(students, count, searchId);
+                break;
             /* case 4:
                 printf("Enter student ID to delete: ");
                 scanf("%d", &deleteId);
                 deleteStudent(students, &count, deleteId);
                 break;6
             case 5:
-                printf("Enter student ID to modify: ");
+                printf("Enter student ID to modify: ");1
+                
                 scanf("%d", &searchId);
                 searchStudent(students, count, searchId);
                 if (searchId != -1) {
@@ -62,7 +68,7 @@ int main() {
                 printf("Invalid choice. Please try again.\n");
                 break;
         }
-    } while (choice != 9); // Continue the loop until the user chooses to exit
+    }  // Continue the loop until the user chooses to exit
     return 0; //successfully terminte the program
 }
 

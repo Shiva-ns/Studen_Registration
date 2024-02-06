@@ -29,7 +29,7 @@ void addStdnt(Student* students[], int* count)
     {
         printf("Enter name: ");
         scanf(" %[^\n]s", newStudent->name);
-        isValidInput = validateName(newStudent->name);
+        isValidInput = validateName(newStudent -> name);
 
         if (!isValidInput)
         {
@@ -114,7 +114,7 @@ void addStdnt(Student* students[], int* count)
             fprintf(fp, "Phone Number: %s\n", newStudent->phone);
         }
     }
-    printf("fp,\n");
+    //printf("\n");
 
     // Assign an ID to the new student
     newStudent->id = *count + 1;

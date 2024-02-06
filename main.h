@@ -41,7 +41,7 @@ int validatePhoneNumber(const char* phoneNumber);
 // Function prototypes for the various operations on student records
 void addStdnt(Student* students[], int* count);
 void displayStdnt(Student* students[], int count);
-//void search_student(Student* student[], int count, int searchID);
+void search_student(Student* student[], int count, int searchID);
 
 #endif
 
