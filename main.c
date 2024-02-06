@@ -63,9 +63,6 @@ int main() {
                 break;
         }
     } while (choice != 9); // Continue the loop until the user chooses to exit
-
-    
-
     return 0; //successfully terminte the program
 }
 
