@@ -6,4 +6,4 @@ Progress in the system
 20-12-2023 Created Student Rgistration System with Basic Features like registration, displaying students data and deleting student data
 28-12-2023 Added File Handling Functions to store students data
 
-Currently working on implementing a 10-07-2023 Extended functionalities like Modifying Student Data, Sorting Students Data by Name and Filtering Students by Cours.
+Currently working on implementing a 1-02-2024 Extended functionalities like Modifying Student Data, Sorting Students Data by Name and Filtering Students by Cours.
