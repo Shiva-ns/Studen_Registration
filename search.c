@@ -6,20 +6,19 @@ If a match is found, it prints the student's information. If no matching student
 
 // Function to search for a student by ID
 
-void search_student(Student* students[], int count, int searchId) {
-
+void searchStudent(Student* students[], int count, int searchId) {
     // Iterate over each student in the array
     for (int i = 0; i < count; i++) {
-         // Check if the ID of the current student matches the search ID
+        // Check if the ID of the current student matches the search ID
         if (students[i]->id == searchId) {
-         printf("\nStudent found:\n");
+            // If a match is found, print the information of the student
+            printf("\nStudent found:\n");
             printf("Student ID: %d\n", students[i]->id);
             printf("Name: %s\n", students[i]->name);
             printf("Email: %s\n", students[i]->email);
             printf("Course: %s\n", students[i]->course);
             printf("Phone Number: %s\n", students[i]->phone);
-            printf("Student ID founded");
-            return ; // Return from the function, as the search is complete
+            return; // Return from the function, as the search is complete
         }
     }
     // If no matching student is found, print a message indicating it

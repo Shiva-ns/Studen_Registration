@@ -6,70 +6,32 @@ prints their ID, name, email, course, and phone number. */
 
 #define PAGE_SIZE 5 // Number of students to display per page
 
-void readStudentsFromFile(Student* students[], int* count) {
-    FILE* fp = fopen("students.txt", "r");
-    if (fp == NULL) {
-        perror("Error opening file");
-        return;
-    }
-
-    // Initialize serial number
-    int ID = 1;
-
-    while (fscanf(fp, "ID: %d\nName: %[^\n]\nEmail: %s\nCourse: %[^\n]\nPhone Number: %[^\n]\n\n", ID, students[*count] -> name, students[*count] -> email, students[*count] -> course, students[*count] -> phone) == 4) {
-        // Increment the count for each successfully read student
-        // Assign the serial number to the student
-        students[*count]->id = ID;
-        (*count)++;
-        // Allocate memory for the next student
-        students[*count] = (Student*)malloc(sizeof(Student));
-        // Increment the serial number for the next student
-        ID++;
-    }
-
-    fclose(fp);
-}
-
-void displayStdnt(Student* students[], int count) {
+void displayStudents(Student* students[], int count) {
     // Check if there are no students to display
-   /* if (count == 0) {
+    if (count == 0) {
         printf("No students to display.\n");
         return;
-    }*/
+    }
 
     // Calculate the number of pages
     int numPages = (count + PAGE_SIZE - 1) / PAGE_SIZE;
 
-    // Iterate over each page
-    for (int currentPage = 1; currentPage <= numPages; currentPage++) {
-        int startIdx = (currentPage - 1) * PAGE_SIZE;
-        int endIdx = startIdx + PAGE_SIZE - 1;
-        endIdx = (endIdx < count) ? endIdx : count - 1;
+    int currentPage = 1; // Current page being displayed
+    int startIdx = (currentPage - 1) * PAGE_SIZE; // Index of the first student on the current page
+    int endIdx = startIdx + PAGE_SIZE - 1; // Index of the last student on the current page
+    endIdx = (endIdx < count) ? endIdx : count - 1; // Adjust the end index if it exceeds the number of students
 
-        // Print the header for the student list to the console
-        printf("Student List (Page %d/%d, Total Students: %d):\n", currentPage, numPages, count);
+    // Print the header for the student list
+    printf("Student List (Page %d/%d, Total Students: %d):\n", currentPage, numPages, count);
 
-        // Iterate over each student and display their information for the current page
-        for (int i = startIdx; i <= endIdx; i++) {
-            printf("\nStudent ID: %d\n", students[i]->id);
-            printf("Name: %s\n", students[i]->name);
-            printf("Email: %s\n", students[i]->email);
-            printf("Course: %s\n", students[i]->course);
-            printf("Phone Number: %s\n", students[i]->phone);
-            printf("\n");
-            return;
-        }
-    }
-    FILE* fp = fopen("students.txt", "r");
-    if (fp != NULL) {
-        int c;
-        printf("\nContents of students.txt:\n");
-        while ((c = fgetc(fp)) != EOF) {
-            putchar(c);
-        }
-        fclose(fp);
-    } else {
-        perror("Error opening file");
+    // Iterate over each student and display their information for the current page
+    for (int i = startIdx; i <= endIdx; i++) {
+        
+        printf("\nStudent ID: %d\n", students[i]->id);
+        printf("Name: %s\n", students[i]->name);
+        printf("Email: %s\n", students[i]->email);
+        printf("Course: %s\n", students[i]->course);
+        printf("Phone Number: %s\n", students[i]->phone);
     }
 }
-
+   
